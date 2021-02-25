@@ -12,15 +12,20 @@ function CustomerForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // addCustomer();
-    axios
-      .post('/pizza', {
-        name,
-        address,
-        city,
-        zip,
-        type
-      })
+    const customer = {
+      customer_name,
+      street_address,
+      city,
+      zip,
+      type
+    }
+
+    dispatch({
+      type: 'ADD_CUSTOMER',
+      payload: customer
+    })
+
+    // TODO history.push
   }
 
   return (
@@ -34,10 +39,10 @@ function CustomerForm() {
         <input onChange={(event) => setZip(event.target.value)} value={zip} type="text" placeholder="Zip" />
         <div className="radio-section">
           <label for="pickup">
-          <input type="radio" id="pickup" name="type" value="pickup" />
+          <input onChange={event => {setType(event.currentTarget.value)}} type="radio" id="pickup" name="type" value="pickup" />
           Pickup</label>
           <label for="delivery">
-          <input type="radio" id="delivery" name="type" value="delivery" />
+          <input onChange={event => {setType(event.currentTarget.value)}} type="radio" id="delivery" name="type" value="delivery" />
           Delivery</label>
         </div>
         <input type="submit" value="Next" />

@@ -6,9 +6,16 @@ import logger from 'redux-logger';
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 
+const customerReducer = (state = {}, action) => {
+  if(action.type === "ADD_CUSTOMER") {
+    return action.payload;
+  }
+  return state;
+}
+
 const store = createStore(
   combineReducers({
-
+    customerReducer,
   }),
   applyMiddleware(logger),
 )
