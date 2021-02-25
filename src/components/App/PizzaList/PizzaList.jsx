@@ -1,19 +1,22 @@
 import axios from 'axios';
+import { useSelector } from 'react-redux'
 
 // GET pizza list from server
 function PizzaList() {
-  let pizzaList;
-
-  axios.get('/api/pizza')
-    .then(response => {
-      console.log('GET /api/pizza:', response.data);
-      pizzaList = response.data
-    })
+  const pizzaList = useSelector(store => {
+    return store.pizzaList;
+  })
 
   return (
-    <div>
-      TEST PizzaList {pizzaList}
-    </div>
+    <section>
+      {pizzaList.map((pizza, index) => {
+        <div key={index}>
+          <p>Name: {pizza.name}</p>
+          <p>{pizza.description}</p>
+          <p>{pizza.price}</p>
+        </div>
+      })}
+    </section>
   );
 } // end PizzaList
 
