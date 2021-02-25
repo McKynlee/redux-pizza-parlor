@@ -1,10 +1,17 @@
 import './AdminView.css';
+import {useSelector} from 'react-redux';
+
 /**
  * Renders All Orders in a Table
  * 
  */
 function AdminView() {
   
+  // Global Redux state for orderList
+  const orderList = useSelector(store => {
+    return store.orderList;
+  })
+
   return(
     <>
       <table>
@@ -18,18 +25,16 @@ function AdminView() {
         </thead>
         <tbody>
           {/* TODO - Replace sample data with rendered data */}
-          <tr>
-            <td>Chris</td>
-            <td>4/5/2018 at 4:45pm</td>
-            <td>Pickup</td>
-            <td>$39.79</td>
-          </tr>
-          <tr>
-            <td>Ally</td>
-            <td>4/6/2018 at 5:00pm</td>
-            <td>Delivery</td>
-            <td>$13.99</td>
-          </tr>
+          {orderList.map((order, index) => {
+            return(
+              <tr key={index}>
+                <td>{order.customer_name}</td>
+                <td>{order.time}</td>
+                <td>{order.type}</td>
+                <td>{order.total}</td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </>
