@@ -32,14 +32,14 @@ function CustomerForm() {
         <input onChange={(event) => setAddress(event.target.value)} value={address} type="text" placeholder="Street Address" />
         <input onChange={(event) => setCity(event.target.value)} value={city} type="text" placeholder="City" />
         <input onChange={(event) => setZip(event.target.value)} value={zip} type="text" placeholder="Zip" />
-        <section className="radio-section">
+        <div className="radio-section">
           <label for="pickup">
           <input type="radio" id="pickup" name="type" value="pickup" />
           Pickup</label>
           <label for="delivery">
           <input type="radio" id="delivery" name="type" value="delivery" />
           Delivery</label>
-        </section>
+        </div>
         <input type="submit" value="Next" />
       </form>
     </div>
