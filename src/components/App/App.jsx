@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 // Custom components:
 import './App.css';
-import PizzaList from './PizzaList/PizzaList';
+import PizzaList from '../PizzaList/PizzaList';
 
 function App() {
   const dispatch = useDispatch();

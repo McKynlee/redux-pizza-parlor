@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import './PizzaList.css'
 
 // GET pizza list from server
 function PizzaList() {
@@ -7,10 +8,10 @@ function PizzaList() {
   })
 
   return (
-    <section>
+    <section className="pizza-box-container">
       {pizzaList.map((pizza, index) => {
         return (
-          <div key={index}>
+          <div key={index} className="individual-pizza-box">
             <p>Name: {pizza.name}</p>
             <p>{pizza.description}</p>
             <p>{pizza.price}</p>
