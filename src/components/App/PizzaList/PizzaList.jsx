@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 
 // GET pizza list from server
 function PizzaList() {
@@ -10,11 +9,13 @@ function PizzaList() {
   return (
     <section>
       {pizzaList.map((pizza, index) => {
-        <div key={index}>
-          <p>Name: {pizza.name}</p>
-          <p>{pizza.description}</p>
-          <p>{pizza.price}</p>
-        </div>
+        return (
+          <div key={index}>
+            <p>Name: {pizza.name}</p>
+            <p>{pizza.description}</p>
+            <p>{pizza.price}</p>
+          </div>
+        )
       })}
     </section>
   );

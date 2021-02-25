@@ -18,7 +18,7 @@ function App() {
   const fetchPizza = () => {
     axios.get('/api/pizza')
       .then(response => {
-        console.log('GET /api/pizza:', response.data);
+        // console.log('GET /api/pizza:', response.data);
 
         dispatch({
           type: 'SET_PIZZA_LIST',
@@ -38,7 +38,7 @@ function App() {
 
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
-      <PizzaList fetchPizza={fetchPizza} />
+      <PizzaList />
     </div>
   );
 }
