@@ -6,12 +6,15 @@ import { useDispatch } from 'react-redux';
 // Custom components:
 import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
+import AdminView from '../AdminView/AdminView';
+
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     fetchPizza();
+    fetchOrders();
   }, []);
 
   // Get pizzas from server:
@@ -29,6 +32,19 @@ function App() {
       })
   }; // end fetchPizza
 
+  // Get order data from the server
+  const fetchOrders = () => {
+    axios.get('/api/order')
+      .then(response => {
+        console.log('GET /api/order', response.data);
+
+        dispatch({
+          type: 'SET_ORDER_LIST',
+          payload: response.data
+        })
+      })
+      .catch(err => console.log('GET error, orders:', err))
+  }
 
   return (
     <div className='App'>
@@ -38,6 +54,7 @@ function App() {
 
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
+      <AdminView />
       <PizzaList />
     </div>
   );
