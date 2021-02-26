@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
@@ -12,6 +12,9 @@ import CheckoutList from '../CheckoutList/CheckoutList';
 import CustomerForm from '../CustomerForm/CustomerForm';
 
 function App() {
+
+  const [totalPrice, setTotalPrice] = useState(0);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -52,16 +55,17 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
+        <h2>Total: {totalPrice}</h2>
       </header>
       <Router>
         <Route path="/" exact>
-          <PizzaList />
+          <PizzaList setTotalPrice={setTotalPrice} totalPrice={totalPrice} />
         </Route>
         <Route path="/customerInfo">
-          <CustomerForm />
+          <CustomerForm totalPrice={totalPrice} />
         </Route>
         <Route path="/checkout">
-          <CheckoutList />
+          <CheckoutList totalPrice={totalPrice} setTotalPrice={setTotalPrice} />
         </Route>
         <Route path="/admin">
           <AdminView />

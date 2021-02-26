@@ -4,16 +4,12 @@ import { useHistory } from 'react-router-dom';
 
 
 // GET pizza list from server
-function PizzaList() {
+function PizzaList({totalPrice, setTotalPrice}) {
   const dispatch  = useDispatch();
   const history = useHistory();
   
   const pizzaList = useSelector(store => {
     return store.pizzaList;
-  })
-
-  const checkout = useSelector(store => {
-    return store.checkout;
   })
 
   const addButtonClick = (event) => {
@@ -27,6 +23,7 @@ function PizzaList() {
       type: "ADD_TO_CART",
       payload: {id, price, quantity: 1 }
     })
+    setTotalPrice(totalPrice + price);
   }
 
   const nextButtonClick = () => {

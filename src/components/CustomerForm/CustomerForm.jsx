@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import './CustomerForm.css';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-function CustomerForm() {
+
+function CustomerForm({totalPrice}) {
+  const history = useHistory();
 
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -30,10 +33,12 @@ function CustomerForm() {
     })
 
     // TODO history.push
+    history.push('/checkout')
   }
 
   return (
     <>
+      <h3>{totalPrice}</h3>
       <h2 className="form-title">Step 2: Customer Information</h2>
       <div className="container">
         <form onSubmit={handleSubmit}>

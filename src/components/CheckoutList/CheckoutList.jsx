@@ -1,10 +1,12 @@
 import {useSelector} from 'react-redux';
-// import {useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 // import {useDispatch} from 'react-redux';
 
-function CheckoutList() {
+function CheckoutList({totalPrice, setTotalPrice}) {
 
-  const checkoutCustomer = useSelector(store => store.checkoutCustomer);
+  const history = useHistory();
+
+  const checkoutCustomer = useSelector(store => store.checkout);
 
   // axios POST to database
   const addOrder = () => {
@@ -36,6 +38,10 @@ function CheckoutList() {
 
   const onClickSubmit = () => {
     console.log('clicked');
+  
+    setTotalPrice(0);
+    alert ('Your Order Is Confirmed!');
+    history.push('/');
   }
 
   return (
@@ -61,7 +67,7 @@ function CheckoutList() {
         </tr>
       </tbody>
     </table>
-    <div> Total: {}</div>
+    <div> Total: {totalPrice}</div>
     <button onClick={onClickSubmit}>CHECKOUT</button>
   </div>
   );
