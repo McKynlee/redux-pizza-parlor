@@ -4,16 +4,35 @@ import {useDispatch} from 'react-redux';
 
 function CheckoutList() {
 
-  // const dispatch = useDispatch();
-  // const history = useHistory();
+  const checkoutCustomer = useSelector(store => store.checkoutCustomer);
 
-  // const onClickSubmit = () => {
-  //   dispatch({
-  //     type: '',
-  //     payload:
-  //   });
-  //   history.push('/');
-  // }
+  // axios POST to database
+  const addOrder = () => {
+    axios({
+      method: 'POST',
+      url: '/api/order',
+      // data: {customer_name: 'John Smith',
+      //   street_address: '123 46th street',
+      //   city: 'Minneapolis',
+      //   zip: '55455',
+      //   type: 'Delivery',
+      //   total: 29.98,
+      //   pizzas: [{ 'id': 1, 'quantity': 1 }]
+      // }
+    })
+    .then((response) => {
+      console.log('POST response', response);
+    })
+    .catch((error) => {
+      console.log("Error from _____", error);
+    });
+    
+  }
+  // Show a confirmation dialog
+
+  // clear the cart
+
+  // navigate to the pizza page (step one)
 
 
 
@@ -29,7 +48,7 @@ function CheckoutList() {
         </tr>
       <thead>
       <tbody>
-        {}
+        {'reducer'.map(())}
       </tbody>
     </table>
     <div> Total: {}</div>
@@ -39,3 +58,17 @@ function CheckoutList() {
 }
 
 export default ChecoutList;
+
+
+  // const dispatch = useDispatch();
+  // const history = useHistory();
+
+  // const onClickSubmit = () => {
+  //   dispatch({
+  //     type: '',
+  //     payload:
+  //   });
+  //   history.push('/');
+  // }
+
+  const 'order'Reducer = useSelector ((storeInstance) => )

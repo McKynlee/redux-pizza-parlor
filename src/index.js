@@ -13,9 +13,18 @@ const pizzaList = (state = [], action) => {
   return state;
 }
 
+const orderList = (state = [], action) => {
+  if (action.type === 'SET_ORDER_LIST') {
+    return action.payload
+  }
+
+  return state;
+}
+
 const store = createStore(
   combineReducers({
     pizzaList,
+    orderList
   }),
   applyMiddleware(logger)
 );
