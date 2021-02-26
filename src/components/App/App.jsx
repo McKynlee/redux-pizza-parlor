@@ -8,6 +8,8 @@ import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
 import AdminView from '../AdminView/AdminView';
 import CheckoutList from '../CheckoutList/CheckoutList';
+import CustomerForm from '../CustomerForm/CustomerForm';
+
 
 
 
@@ -59,6 +61,8 @@ function App() {
       <AdminView />
       <PizzaList />
       <CheckoutList />
+      <CustomerForm />
+
     </div>
   );
 }

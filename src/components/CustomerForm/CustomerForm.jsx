@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import './CustomerForm.css'
+import './CustomerForm.css';
 import {useDispatch} from 'react-redux';
 
 function CustomerForm() {
@@ -22,7 +22,9 @@ function CustomerForm() {
       zip,
       type
     }
+
     console.log('customer to add', customer)
+    
     dispatch({
       type: 'ADD_CUSTOMER',
       payload: customer
