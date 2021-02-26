@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import axios from 'axios';
 import './CustomerForm.css';
 import { useDispatch } from 'react-redux';
 
 function CustomerForm() {
 
   const dispatch = useDispatch();
-
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
@@ -24,6 +22,7 @@ function CustomerForm() {
     }
 
     console.log('customer to add', customer)
+
 
     dispatch({
       type: 'ADD_CUSTOMER',

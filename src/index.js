@@ -6,6 +6,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+
 const pizzaList = (state = [], action) => {
   if (action.type === 'SET_PIZZA_LIST') {
     return action.payload

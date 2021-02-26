@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 // Custom components:
 import './App.css';
@@ -52,14 +53,20 @@ function App() {
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
       </header>
-
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
-      <AdminView />
-      <PizzaList />
-      <CheckoutList />
-      <CustomerForm />
-
+      <Router>
+        <Route path="/" exact>
+          <PizzaList />
+        </Route>
+        <Route path="/customerInfo">
+          <CustomerForm />
+        </Route>
+        <Route path="/checkout">
+          <CheckoutList />
+        </Route>
+        <Route path="/admin">
+          <AdminView />
+        </Route>
+      </Router>
     </div>
   );
 }
