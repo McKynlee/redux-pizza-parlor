@@ -22,7 +22,9 @@ function CustomerForm() {
       zip,
       type
     }
+
     console.log('customer to add', customer)
+    
     dispatch({
       type: 'ADD_CUSTOMER',
       payload: customer
