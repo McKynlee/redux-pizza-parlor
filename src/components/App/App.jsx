@@ -7,7 +7,8 @@ import { useDispatch } from 'react-redux';
 import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
 import AdminView from '../AdminView/AdminView';
-
+import CheckoutList from '../CheckoutList/CheckoutList';
+import CustomerForm from '../CustomerForm/CustomerForm';
 
 function App() {
   const dispatch = useDispatch();
@@ -56,6 +57,9 @@ function App() {
       <p>Pizza is great.</p>
       <AdminView />
       <PizzaList />
+      <CheckoutList />
+      <CustomerForm />
+
     </div>
   );
 }

@@ -13,12 +13,15 @@ function PizzaList() {
         return (
           <div key={index} className="individual-pizza-box">
             <p>Name: {pizza.name}</p>
+            <img src={pizza.image_path} />
             <p>{pizza.description}</p>
             <p>{pizza.price}</p>
+            <button>ADD</button>
           </div>
         )
       })}
-    </section>
+      <button>NEXT</button>
+    </section >
   );
 } // end PizzaList
 
