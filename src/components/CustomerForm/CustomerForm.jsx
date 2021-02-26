@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 import './CustomerForm.css';
 import {useDispatch} from 'react-redux';
 
@@ -43,10 +42,10 @@ function CustomerForm() {
         <input onChange={(event) => setCity(event.target.value)} value={city} type="text" placeholder="City" />
         <input onChange={(event) => setZip(event.target.value)} value={zip} type="text" placeholder="Zip" />
         <div className="radio-section">
-          <label for="pickup">
+          <label htmlFor="pickup">
           <input onChange={event => {setType(event.currentTarget.value)}} type="radio" id="pickup" name="type" value="pickup" />
           Pickup</label>
-          <label for="delivery">
+          <label htmlFor="delivery">
           <input onChange={event => {setType(event.currentTarget.value)}} type="radio" id="delivery" name="type" value="delivery" />
           Delivery</label>
         </div>
