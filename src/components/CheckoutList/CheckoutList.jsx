@@ -1,6 +1,6 @@
 import {useSelector} from 'react-redux';
-import {useHistory} from 'react-rounter-dom';
-import {useDispatch} from 'react-redux';
+// import {useHistory} from 'react-router-dom';
+// import {useDispatch} from 'react-redux';
 
 function CheckoutList() {
 
@@ -34,7 +34,9 @@ function CheckoutList() {
 
   // navigate to the pizza page (step one)
 
-
+  const onClickSubmit = () => {
+    console.log('clicked');
+  }
 
   return (
   <div>
@@ -46,9 +48,17 @@ function CheckoutList() {
           <th>Name</th>
           <th>Cost</th>  
         </tr>
-      <thead>
+      </thead>
       <tbody>
-        {'reducer'.map(())}
+        {/* {'reducer'.map(())} */}
+        <tr>
+          <td>Pepperoni</td>
+          <td>$13.99</td>
+        </tr>
+        <tr>
+          <td>Sausage</td>
+          <td>$13.99</td>
+        </tr>
       </tbody>
     </table>
     <div> Total: {}</div>
@@ -57,7 +67,7 @@ function CheckoutList() {
   );
 }
 
-export default ChecoutList;
+export default CheckoutList;
 
 
   // const dispatch = useDispatch();
@@ -71,4 +81,3 @@ export default ChecoutList;
   //   history.push('/');
   // }
 
-  const 'order'Reducer = useSelector ((storeInstance) => )

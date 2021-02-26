@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import './App.css';
 import PizzaList from '../PizzaList/PizzaList';
 import AdminView from '../AdminView/AdminView';
+import CheckoutList from '../CheckoutList/CheckoutList';
 
 
 
@@ -57,6 +58,7 @@ function App() {
       <p>Pizza is great.</p>
       <AdminView />
       <PizzaList />
+      <CheckoutList />
     </div>
   );
 }
