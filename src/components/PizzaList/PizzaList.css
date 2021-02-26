@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: center;
 }
 
 .individual-pizza-box {
@@ -12,7 +13,13 @@
   padding: 10px;
 }
 
-.img {
-  width: 150px;
+img {
+  width: 100%;
   height: auto;
+}
+
+.pizza-next-button {
+  height: 20px;
+  align-self: flex-end;
+  justify-self: end;
 }

@@ -7,6 +7,14 @@ function PizzaList() {
     return store.pizzaList;
   })
 
+  const addButtonClick = () => {
+    console.log('Clicked to add pizza');
+  }
+
+  const nextButtonClick = () => {
+    console.log('Clicked NEXT on pizza');
+  }
+
   return (
     <section className="pizza-box-container">
       {pizzaList.map((pizza, index) => {
@@ -16,11 +24,12 @@ function PizzaList() {
             <img src={pizza.image_path} />
             <p>{pizza.description}</p>
             <p>{pizza.price}</p>
-            <button>ADD</button>
+            <button onClick={addButtonClick}>ADD</button>
           </div>
         )
       })}
-      <button>NEXT</button>
+      <button className="pizza-next-button"
+        onClick={nextButtonClick}>NEXT</button>
     </section >
   );
 } // end PizzaList
