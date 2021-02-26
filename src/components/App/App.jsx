@@ -5,9 +5,9 @@ import { useDispatch } from 'react-redux';
 
 // Custom components:
 import './App.css';
-import CustomerForm from '../CustomerForm/CustomerForm';
 import AdminView from '../AdminView/AdminView';
 import PizzaList from './PizzaList/PizzaList';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ function App() {
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
       </header>
-      <CustomerForm />
+
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
       <AdminView />
