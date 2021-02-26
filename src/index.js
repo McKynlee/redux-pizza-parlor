@@ -6,7 +6,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-
+// pizza list
 const pizzaList = (state = [], action) => {
   if (action.type === 'SET_PIZZA_LIST') {
     return action.payload;
@@ -14,6 +14,7 @@ const pizzaList = (state = [], action) => {
   return state;
 }
 
+// admin 
 const orderList = (state = [], action) => {
   if (action.type === 'SET_ORDER_LIST') {
     return action.payload;
@@ -21,9 +22,18 @@ const orderList = (state = [], action) => {
   return state;
 }
 
+// customer info list
 const addCustomer = (state = {}, action) => {
   if(action.type === "ADD_CUSTOMER") {
     return action.payload;
+  }
+  return state;
+}
+
+// checkout (cart)
+const checkout = (state = [], action) => {
+  if(action.type === "ADD_TO_CART") {
+    return [...state, action.payload];
   }
   return state;
 }
@@ -32,7 +42,8 @@ const store = createStore(
   combineReducers({
     pizzaList,
     orderList,
-    addCustomer
+    addCustomer,
+    checkout
   }),
   applyMiddleware(logger)
 );

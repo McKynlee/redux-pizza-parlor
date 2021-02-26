@@ -1,18 +1,37 @@
-import { useSelector } from 'react-redux';
-import './PizzaList.css'
+import { useSelector, useDispatch } from 'react-redux';
+import './PizzaList.css';
+import { useHistory } from 'react-router-dom';
+
 
 // GET pizza list from server
 function PizzaList() {
+  const dispatch  = useDispatch();
+  const history = useHistory();
+  
   const pizzaList = useSelector(store => {
     return store.pizzaList;
   })
 
-  const addButtonClick = () => {
-    console.log('Clicked to add pizza');
+  const checkout = useSelector(store => {
+    return store.checkout;
+  })
+
+  const addButtonClick = (event) => {
+    console.log(event.target)
+    let id = Number(event.currentTarget.dataset.id);
+    let price = Number(event.currentTarget.dataset.price);
+    console.log('pizza id', id, 'price', price);
+    console.log('Clicked to add pizza', );
+    // TODO: dispatch pizza id to 'ADD_TO_CART'
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {id, price, quantity: 1 }
+    })
   }
 
   const nextButtonClick = () => {
     console.log('Clicked NEXT on pizza');
+    history.push('/customerInfo');
   }
 
   return (
@@ -24,13 +43,14 @@ function PizzaList() {
             <img src={pizza.image_path} />
             <p>{pizza.description}</p>
             <p>{pizza.price}</p>
-            <button onClick={addButtonClick}>ADD</button>
+            <button data-id={pizza.id} data-price={pizza.price} 
+            onClick={addButtonClick}>ADD</button>
           </div>
         )
       })}
       <button className="pizza-next-button"
         onClick={nextButtonClick}>NEXT</button>
-    </section >
+    </section>
   );
 } // end PizzaList
 
